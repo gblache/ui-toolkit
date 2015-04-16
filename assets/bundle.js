@@ -26209,7 +26209,7 @@ arguments[4][159][0].apply(exports,arguments)
 },{"./lib/React":419,"dup":159}],547:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "UI Toolkit",
   "main": "src/index.js",
   "repository": {
@@ -26244,8 +26244,6 @@ module.exports={
   "devDependencies": {
     "browserify": "~9.0.8",
     "grunt": "^0.4.5",
-    "grunt-build-control": "^0.3.0",
-    "grunt-bump": "^0.0.15",
     "grunt-changelog": "^0.2.2",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-copy": "~0.8.0",
