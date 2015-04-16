@@ -20080,7 +20080,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var AffixMixin = _interopRequire(require("./AffixMixin"));
 
@@ -20101,7 +20101,7 @@ var Affix = React.createClass({
     return React.createElement(
       "div",
       _extends({}, this.props, {
-        className: classNames(this.props.className, this.state.affixClass),
+        className: classSet(this.props.className, this.state.affixClass),
         style: holderStyle }),
       this.props.children
     );
@@ -20224,7 +20224,7 @@ var AffixMixin = {
 
   componentDidMount: function componentDidMount() {
     this._onWindowScrollListener = EventListener.listen(window, "scroll", this.checkPosition);
-    this._onDocumentClickListener = EventListener.listen(domUtils.ownerDocument(this), "click", this.checkPositionWithEventLoop);
+    this._onDocumentClickListener = EventListener.listen(React.findDOMNode(this).ownerDocument, "click", this.checkPositionWithEventLoop);
   },
 
   componentWillUnmount: function componentWillUnmount() {
@@ -20254,7 +20254,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
@@ -20295,7 +20295,7 @@ var Alert = React.createClass({
 
     return React.createElement(
       "div",
-      _extends({}, this.props, { className: classNames(this.props.className, classes) }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes) }),
       isDismissable ? this.renderDismissButton() : null,
       this.props.children
     );
@@ -20324,7 +20324,7 @@ var React = _interopRequire(require("react"));
 
 var ValidComponentChildren = _interopRequire(require("./utils/ValidComponentChildren"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var Badge = React.createClass({
   displayName: "Badge",
@@ -20345,7 +20345,7 @@ var Badge = React.createClass({
     return React.createElement(
       "span",
       _extends({}, this.props, {
-        className: classNames(this.props.className, classes) }),
+        className: classSet(this.props.className, classes) }),
       this.props.children
     );
   }
@@ -20406,7 +20406,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
@@ -20461,7 +20461,7 @@ var Button = React.createClass({
       Component,
       _extends({}, this.props, {
         href: href,
-        className: classNames(this.props.className, classes),
+        className: classSet(this.props.className, classes),
         role: "button" }),
       this.props.children
     );
@@ -20473,7 +20473,7 @@ var Button = React.createClass({
     return React.createElement(
       Component,
       _extends({}, this.props, {
-        className: classNames(this.props.className, classes) }),
+        className: classSet(this.props.className, classes) }),
       this.props.children
     );
   },
@@ -20485,7 +20485,7 @@ var Button = React.createClass({
 
     return React.createElement(
       "li",
-      { className: classNames(liClasses) },
+      { className: classSet(liClasses) },
       this.renderAnchor(classes)
     );
   }
@@ -20501,7 +20501,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
@@ -20530,7 +20530,7 @@ var ButtonGroup = React.createClass({
     return React.createElement(
       "div",
       _extends({}, this.props, {
-        className: classNames(this.props.className, classes) }),
+        className: classSet(this.props.className, classes) }),
       this.props.children
     );
   }
@@ -20546,7 +20546,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
@@ -20568,7 +20568,7 @@ var ButtonToolbar = React.createClass({
       "div",
       _extends({}, this.props, {
         role: "toolbar",
-        className: classNames(this.props.className, classes) }),
+        className: classSet(this.props.className, classes) }),
       this.props.children
     );
   }
@@ -20588,7 +20588,7 @@ var React = _interopRequire(_react);
 
 var cloneElement = _react.cloneElement;
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
@@ -20602,7 +20602,6 @@ var Carousel = React.createClass({
   propTypes: {
     slide: React.PropTypes.bool,
     indicators: React.PropTypes.bool,
-    interval: React.PropTypes.number,
     controls: React.PropTypes.bool,
     pauseOnHover: React.PropTypes.bool,
     wrap: React.PropTypes.bool,
@@ -20732,7 +20731,7 @@ var Carousel = React.createClass({
     return React.createElement(
       "div",
       _extends({}, this.props, {
-        className: classNames(this.props.className, classes),
+        className: classSet(this.props.className, classes),
         onMouseOver: this.handleMouseOver,
         onMouseOut: this.handleMouseOut }),
       this.props.indicators ? this.renderIndicators() : null,
@@ -20869,7 +20868,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var TransitionEvents = _interopRequire(require("./utils/TransitionEvents"));
 
@@ -20880,10 +20879,7 @@ var CarouselItem = React.createClass({
     direction: React.PropTypes.oneOf(["prev", "next"]),
     onAnimateOutEnd: React.PropTypes.func,
     active: React.PropTypes.bool,
-    animateIn: React.PropTypes.bool,
-    animateOut: React.PropTypes.bool,
-    caption: React.PropTypes.node,
-    index: React.PropTypes.number
+    caption: React.PropTypes.node
   },
 
   getInitialState: function getInitialState() {
@@ -20946,7 +20942,7 @@ var CarouselItem = React.createClass({
 
     return React.createElement(
       "div",
-      _extends({}, this.props, { className: classNames(this.props.className, classes) }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes) }),
       this.props.children,
       this.props.caption ? this.renderCaption() : null
     );
@@ -20971,7 +20967,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var constants = _interopRequire(require("./constants"));
 
@@ -21038,7 +21034,7 @@ var Col = React.createClass({
 
     return React.createElement(
       ComponentClass,
-      _extends({}, this.props, { className: classNames(this.props.className, classes) }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes) }),
       this.props.children
     );
   }
@@ -21229,7 +21225,7 @@ var React = _interopRequire(_react);
 
 var cloneElement = _react.cloneElement;
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var createChainedFunction = _interopRequire(require("./utils/createChainedFunction"));
 
@@ -21302,7 +21298,7 @@ var DropdownButton = React.createClass({
       ButtonGroup,
       {
         bsSize: this.props.bsSize,
-        className: classNames(this.props.className, groupClasses) },
+        className: classSet(this.props.className, groupClasses) },
       children
     );
   },
@@ -21316,7 +21312,7 @@ var DropdownButton = React.createClass({
 
     return React.createElement(
       "li",
-      { className: classNames(this.props.className, classes) },
+      { className: classSet(this.props.className, classes) },
       children
     );
   },
@@ -21363,7 +21359,7 @@ var React = _interopRequire(_react);
 
 var cloneElement = _react.cloneElement;
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var createChainedFunction = _interopRequire(require("./utils/createChainedFunction"));
 
@@ -21386,7 +21382,7 @@ var DropdownMenu = React.createClass({
     return React.createElement(
       "ul",
       _extends({}, this.props, {
-        className: classNames(this.props.className, classes),
+        className: classSet(this.props.className, classes),
         role: "menu" }),
       ValidComponentChildren.map(this.props.children, this.renderMenuItem)
     );
@@ -21410,8 +21406,6 @@ module.exports = DropdownMenu;
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
 
 var React = _interopRequire(require("react"));
-
-var domUtils = _interopRequire(require("./utils/domUtils"));
 
 var EventListener = _interopRequire(require("./utils/EventListener"));
 
@@ -21470,7 +21464,7 @@ var DropdownStateMixin = {
   },
 
   bindRootCloseHandlers: function bindRootCloseHandlers() {
-    var doc = domUtils.ownerDocument(this);
+    var doc = React.findDOMNode(this).ownerDocument;
 
     this._onDocumentClickListener = EventListener.listen(doc, "click", this.handleDocumentClick);
     this._onDocumentKeyupListener = EventListener.listen(doc, "keyup", this.handleDocumentKeyUp);
@@ -21492,14 +21486,12 @@ var DropdownStateMixin = {
 };
 
 module.exports = DropdownStateMixin;
-},{"./utils/EventListener":219,"./utils/domUtils":224,"react":381}],184:[function(require,module,exports){
+},{"./utils/EventListener":219,"react":381}],184:[function(require,module,exports){
 "use strict";
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
 
 var React = _interopRequire(require("react"));
-
-var domUtils = _interopRequire(require("./utils/domUtils"));
 
 // TODO: listen for onTransitionEnd to remove el
 function getElementsAndSelf(root, classes) {
@@ -21560,7 +21552,7 @@ module.exports = {
 
   componentWillUnmount: function componentWillUnmount() {
     var els = getElementsAndSelf(React.findDOMNode(this), ["fade"]),
-        container = this.props.container && React.findDOMNode(this.props.container) || domUtils.ownerDocument(this).body;
+        container = this.props.container && React.findDOMNode(this.props.container) || React.findDOMNode(this).ownerDocument.body;
 
     if (els.length) {
       this._fadeOutEl = document.createElement("div");
@@ -21571,7 +21563,7 @@ module.exports = {
     }
   }
 };
-},{"./utils/domUtils":224,"react":381}],185:[function(require,module,exports){
+},{"react":381}],185:[function(require,module,exports){
 "use strict";
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
@@ -21584,7 +21576,7 @@ var _classCallCheck = function (instance, Constructor) { if (!(instance instance
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var FormGroup = (function (_React$Component) {
   function FormGroup() {
@@ -21610,7 +21602,7 @@ var FormGroup = (function (_React$Component) {
 
         return React.createElement(
           "div",
-          { className: classNames(classes, this.props.groupClassName) },
+          { className: classSet(classes, this.props.groupClassName) },
           this.props.children
         );
       }
@@ -21641,7 +21633,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
@@ -21669,7 +21661,7 @@ var Glyphicon = React.createClass({
 
     return React.createElement(
       "span",
-      _extends({}, this.props, { className: classNames(this.props.className, classes) }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes) }),
       this.props.children
     );
   }
@@ -21685,7 +21677,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var Grid = React.createClass({
   displayName: "Grid",
@@ -21708,7 +21700,7 @@ var Grid = React.createClass({
     return React.createElement(
       ComponentClass,
       _extends({}, this.props, {
-        className: classNames(this.props.className, className) }),
+        className: classSet(this.props.className, className) }),
       this.props.children
     );
   }
@@ -21724,7 +21716,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var Button = _interopRequire(require("./Button"));
 
@@ -21752,13 +21744,10 @@ var Input = React.createClass({
       return React.PropTypes.oneOf(["success", "warning", "error"]).apply(null, arguments);
     },
     hasFeedback: React.PropTypes.bool,
-    id: React.PropTypes.string,
     groupClassName: React.PropTypes.string,
     wrapperClassName: React.PropTypes.string,
     labelClassName: React.PropTypes.string,
-    multiple: React.PropTypes.bool,
-    disabled: React.PropTypes.bool,
-    value: React.PropTypes.any
+    disabled: React.PropTypes.bool
   },
 
   getInputDOMNode: function getInputDOMNode() {
@@ -21816,17 +21805,17 @@ var Input = React.createClass({
       case "select":
         input = React.createElement(
           "select",
-          _extends({}, this.props, { className: classNames(this.props.className, "form-control"), ref: "input", key: "input" }),
+          _extends({}, this.props, { className: classSet(this.props.className, "form-control"), ref: "input", key: "input" }),
           this.props.children
         );
         break;
       case "textarea":
-        input = React.createElement("textarea", _extends({}, this.props, { className: classNames(this.props.className, "form-control"), ref: "input", key: "input" }));
+        input = React.createElement("textarea", _extends({}, this.props, { className: classSet(this.props.className, "form-control"), ref: "input", key: "input" }));
         break;
       case "static":
         input = React.createElement(
           "p",
-          _extends({}, this.props, { className: classNames(this.props.className, "form-control-static"), ref: "input", key: "input" }),
+          _extends({}, this.props, { className: classSet(this.props.className, "form-control-static"), ref: "input", key: "input" }),
           this.props.value
         );
         break;
@@ -21835,7 +21824,7 @@ var Input = React.createClass({
         break;
       default:
         var className = this.isCheckboxOrRadio() || this.isFile() ? "" : "form-control";
-        input = React.createElement("input", _extends({}, this.props, { className: classNames(this.props.className, className), ref: "input", key: "input" }));
+        input = React.createElement("input", _extends({}, this.props, { className: classSet(this.props.className, className), ref: "input", key: "input" }));
     }
 
     return input;
@@ -21876,7 +21865,7 @@ var Input = React.createClass({
 
     return addonBefore || addonAfter || buttonBefore || buttonAfter ? React.createElement(
       "div",
-      { className: classNames(inputGroupClassName, "input-group"), key: "input-group" },
+      { className: classSet(inputGroupClassName, "input-group"), key: "input-group" },
       addonBefore,
       buttonBefore,
       children,
@@ -21894,7 +21883,7 @@ var Input = React.createClass({
       "glyphicon-remove": this.props.bsStyle === "error"
     };
 
-    return this.props.hasFeedback ? React.createElement("span", { className: classNames(classes), key: "icon" }) : null;
+    return this.props.hasFeedback ? React.createElement("span", { className: classSet(classes), key: "icon" }) : null;
   },
 
   renderHelp: function renderHelp() {
@@ -21913,7 +21902,7 @@ var Input = React.createClass({
 
     return React.createElement(
       "div",
-      { className: classNames(classes), key: "checkboxRadioWrapper" },
+      { className: classSet(classes), key: "checkboxRadioWrapper" },
       children
     );
   },
@@ -21934,7 +21923,7 @@ var Input = React.createClass({
 
     return this.props.label ? React.createElement(
       "label",
-      { htmlFor: this.props.id, className: classNames(classes), key: "label" },
+      { htmlFor: this.props.id, className: classSet(classes), key: "label" },
       children,
       this.props.label
     ) : children;
@@ -22054,7 +22043,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var Jumbotron = React.createClass({
   displayName: "Jumbotron",
@@ -22062,7 +22051,7 @@ var Jumbotron = React.createClass({
   render: function render() {
     return React.createElement(
       "div",
-      _extends({}, this.props, { className: classNames(this.props.className, "jumbotron") }),
+      _extends({}, this.props, { className: classSet(this.props.className, "jumbotron") }),
       this.props.children
     );
   }
@@ -22078,7 +22067,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
@@ -22099,7 +22088,7 @@ var Label = React.createClass({
 
     return React.createElement(
       "span",
-      _extends({}, this.props, { className: classNames(this.props.className, classes) }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes) }),
       this.props.children
     );
   }
@@ -22123,7 +22112,7 @@ var React = _interopRequire(_react);
 
 var cloneElement = _react.cloneElement;
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var ValidComponentChildren = _interopRequire(require("./utils/ValidComponentChildren"));
 
@@ -22147,7 +22136,7 @@ var ListGroup = (function (_React$Component) {
 
         return React.createElement(
           "div",
-          { className: classNames(this.props.className, "list-group") },
+          { className: classSet(this.props.className, "list-group") },
           items
         );
       }
@@ -22177,7 +22166,7 @@ var cloneElement = _react.cloneElement;
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var ListGroupItem = React.createClass({
   displayName: "ListGroupItem",
@@ -22217,7 +22206,7 @@ var ListGroupItem = React.createClass({
   renderSpan: function renderSpan(classes) {
     return React.createElement(
       "span",
-      _extends({}, this.props, { className: classNames(this.props.className, classes) }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes) }),
       this.props.header ? this.renderStructuredContent() : this.props.children
     );
   },
@@ -22226,7 +22215,7 @@ var ListGroupItem = React.createClass({
     return React.createElement(
       "a",
       _extends({}, this.props, {
-        className: classNames(this.props.className, classes)
+        className: classSet(this.props.className, classes)
       }),
       this.props.header ? this.renderStructuredContent() : this.props.children
     );
@@ -22237,7 +22226,7 @@ var ListGroupItem = React.createClass({
     if (React.isValidElement(this.props.header)) {
       header = cloneElement(this.props.header, {
         key: "header",
-        className: classNames(this.props.header.props.className, "list-group-item-heading")
+        className: classSet(this.props.header.props.className, "list-group-item-heading")
       });
     } else {
       header = React.createElement(
@@ -22267,7 +22256,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var MenuItem = React.createClass({
   displayName: "MenuItem",
@@ -22319,7 +22308,7 @@ var MenuItem = React.createClass({
     return React.createElement(
       "li",
       _extends({}, this.props, { role: "presentation", title: null, href: null,
-        className: classNames(this.props.className, classes) }),
+        className: classSet(this.props.className, classes) }),
       children
     );
   }
@@ -22335,13 +22324,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
 var FadeMixin = _interopRequire(require("./FadeMixin"));
-
-var domUtils = _interopRequire(require("./utils/domUtils"));
 
 var EventListener = _interopRequire(require("./utils/EventListener"));
 
@@ -22393,12 +22380,12 @@ var Modal = React.createClass({
         tabIndex: "-1",
         role: "dialog",
         style: modalStyle,
-        className: classNames(this.props.className, classes),
+        className: classSet(this.props.className, classes),
         onClick: this.props.backdrop === true ? this.handleBackdropClick : null,
         ref: "modal" }),
       React.createElement(
         "div",
-        { className: classNames(dialogClasses) },
+        { className: classSet(dialogClasses) },
         React.createElement(
           "div",
           { className: "modal-content", style: { overflow: "hidden" } },
@@ -22424,7 +22411,7 @@ var Modal = React.createClass({
     return React.createElement(
       "div",
       null,
-      React.createElement("div", { className: classNames(classes), ref: "backdrop", onClick: onClick }),
+      React.createElement("div", { className: classSet(classes), ref: "backdrop", onClick: onClick }),
       modal
     );
   },
@@ -22446,7 +22433,7 @@ var Modal = React.createClass({
     classes["bg-" + style] = style;
     classes["text-" + style] = style;
 
-    var className = classNames(classes);
+    var className = classSet(classes);
 
     return React.createElement(
       "div",
@@ -22473,9 +22460,9 @@ var Modal = React.createClass({
   },
 
   componentDidMount: function componentDidMount() {
-    this._onDocumentKeyupListener = EventListener.listen(domUtils.ownerDocument(this), "keyup", this.handleDocumentKeyUp);
+    this._onDocumentKeyupListener = EventListener.listen(React.findDOMNode(this).ownerDocument, "keyup", this.handleDocumentKeyUp);
 
-    var container = this.props.container && React.findDOMNode(this.props.container) || domUtils.ownerDocument(this).body;
+    var container = this.props.container && React.findDOMNode(this.props.container) || React.findDOMNode(this).ownerDocument.body;
     container.className += container.className.length ? " modal-open" : "modal-open";
 
     if (this.props.backdrop) {
@@ -22491,7 +22478,7 @@ var Modal = React.createClass({
 
   componentWillUnmount: function componentWillUnmount() {
     this._onDocumentKeyupListener.remove();
-    var container = this.props.container && React.findDOMNode(this.props.container) || domUtils.ownerDocument(this).body;
+    var container = this.props.container && React.findDOMNode(this.props.container) || React.findDOMNode(this).ownerDocument.body;
     container.className = container.className.replace(/ ?modal-open/, "");
   },
 
@@ -22511,7 +22498,7 @@ var Modal = React.createClass({
 });
 
 module.exports = Modal;
-},{"./BootstrapMixin":173,"./FadeMixin":184,"./utils/EventListener":219,"./utils/domUtils":224,"classnames":225,"react":381}],196:[function(require,module,exports){
+},{"./BootstrapMixin":173,"./FadeMixin":184,"./utils/EventListener":219,"classnames":225,"react":381}],196:[function(require,module,exports){
 "use strict";
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
@@ -22595,7 +22582,7 @@ var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
 var CollapsableMixin = _interopRequire(require("./CollapsableMixin"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var domUtils = _interopRequire(require("./utils/domUtils"));
 
@@ -22609,8 +22596,6 @@ var Nav = React.createClass({
   mixins: [BootstrapMixin, CollapsableMixin],
 
   propTypes: {
-    activeHref: React.PropTypes.string,
-    activeKey: React.PropTypes.any,
     bsStyle: React.PropTypes.oneOf(["tabs", "pills"]),
     stacked: React.PropTypes.bool,
     justified: React.PropTypes.bool,
@@ -22619,7 +22604,6 @@ var Nav = React.createClass({
     expanded: React.PropTypes.bool,
     navbar: React.PropTypes.bool,
     eventKey: React.PropTypes.any,
-    pullRight: React.PropTypes.bool,
     right: React.PropTypes.bool
   },
 
@@ -22652,7 +22636,7 @@ var Nav = React.createClass({
 
     return React.createElement(
       "nav",
-      _extends({}, this.props, { className: classNames(this.props.className, classes) }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes) }),
       this.renderUl()
     );
   },
@@ -22668,7 +22652,7 @@ var Nav = React.createClass({
 
     return React.createElement(
       "ul",
-      _extends({}, this.props, { className: classNames(this.props.className, classes), ref: "ul" }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes), ref: "ul" }),
       ValidComponentChildren.map(this.props.children, this.renderNavItem)
     );
   },
@@ -22715,7 +22699,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
@@ -22769,7 +22753,7 @@ var NavItem = React.createClass({
 
     return React.createElement(
       "li",
-      _extends({}, props, { className: classNames(props.className, classes) }),
+      _extends({}, props, { className: classSet(props.className, classes) }),
       React.createElement(
         "a",
         linkProps,
@@ -22805,7 +22789,7 @@ var cloneElement = _react.cloneElement;
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var ValidComponentChildren = _interopRequire(require("./utils/ValidComponentChildren"));
 
@@ -22879,7 +22863,7 @@ var Navbar = React.createClass({
 
     return React.createElement(
       ComponentClass,
-      _extends({}, this.props, { className: classNames(this.props.className, classes) }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes) }),
       React.createElement(
         "div",
         { className: this.props.fluid ? "container-fluid" : "container" },
@@ -22904,7 +22888,7 @@ var Navbar = React.createClass({
     if (this.props.brand) {
       if (React.isValidElement(this.props.brand)) {
         brand = cloneElement(this.props.brand, {
-          className: classNames(this.props.brand.props.className, "navbar-brand")
+          className: classSet(this.props.brand.props.className, "navbar-brand")
         });
       } else {
         brand = React.createElement(
@@ -22929,7 +22913,7 @@ var Navbar = React.createClass({
     if (React.isValidElement(this.props.toggleButton)) {
 
       return cloneElement(this.props.toggleButton, {
-        className: classNames(this.props.toggleButton.props.className, "navbar-toggle"),
+        className: classSet(this.props.toggleButton.props.className, "navbar-toggle"),
         onClick: createChainedFunction(this.handleToggle, this.props.toggleButton.props.onClick)
       });
     }
@@ -22957,8 +22941,6 @@ var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["defau
 var React = _interopRequire(require("react"));
 
 var CustomPropTypes = _interopRequire(require("./utils/CustomPropTypes"));
-
-var domUtils = _interopRequire(require("./utils/domUtils"));
 
 module.exports = {
   propTypes: {
@@ -23020,10 +23002,10 @@ module.exports = {
   },
 
   getContainerDOMNode: function getContainerDOMNode() {
-    return React.findDOMNode(this.props.container) || domUtils.ownerDocument(this).body;
+    return React.findDOMNode(this.props.container || React.findDOMNode(this).ownerDocument.body);
   }
 };
-},{"./utils/CustomPropTypes":218,"./utils/domUtils":224,"react":381}],201:[function(require,module,exports){
+},{"./utils/CustomPropTypes":218,"react":381}],201:[function(require,module,exports){
 "use strict";
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
@@ -23264,7 +23246,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var PageHeader = React.createClass({
   displayName: "PageHeader",
@@ -23272,7 +23254,7 @@ var PageHeader = React.createClass({
   render: function render() {
     return React.createElement(
       "div",
-      _extends({}, this.props, { className: classNames(this.props.className, "page-header") }),
+      _extends({}, this.props, { className: classSet(this.props.className, "page-header") }),
       React.createElement(
         "h1",
         null,
@@ -23292,7 +23274,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var PageItem = React.createClass({
   displayName: "PageItem",
@@ -23300,7 +23282,6 @@ var PageItem = React.createClass({
   propTypes: {
     href: React.PropTypes.string,
     target: React.PropTypes.string,
-    title: React.PropTypes.string,
     disabled: React.PropTypes.bool,
     previous: React.PropTypes.bool,
     next: React.PropTypes.bool,
@@ -23324,7 +23305,7 @@ var PageItem = React.createClass({
     return React.createElement(
       "li",
       _extends({}, this.props, {
-        className: classNames(this.props.className, classes) }),
+        className: classSet(this.props.className, classes) }),
       React.createElement(
         "a",
         {
@@ -23363,7 +23344,7 @@ var React = _interopRequire(_react);
 
 var cloneElement = _react.cloneElement;
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var ValidComponentChildren = _interopRequire(require("./utils/ValidComponentChildren"));
 
@@ -23380,7 +23361,7 @@ var Pager = React.createClass({
     return React.createElement(
       "ul",
       _extends({}, this.props, {
-        className: classNames(this.props.className, "pager") }),
+        className: classSet(this.props.className, "pager") }),
       ValidComponentChildren.map(this.props.children, this.renderPageItem)
     );
   },
@@ -23407,7 +23388,7 @@ var React = _interopRequire(_react);
 
 var cloneElement = _react.cloneElement;
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
@@ -23422,7 +23403,6 @@ var Panel = React.createClass({
     collapsable: React.PropTypes.bool,
     onSelect: React.PropTypes.func,
     header: React.PropTypes.node,
-    id: React.PropTypes.string,
     footer: React.PropTypes.node,
     eventKey: React.PropTypes.any
   },
@@ -23470,7 +23450,7 @@ var Panel = React.createClass({
     return React.createElement(
       "div",
       _extends({}, this.props, {
-        className: classNames(this.props.className, classes),
+        className: classSet(this.props.className, classes),
         id: this.props.collapsable ? null : this.props.id, onSelect: null }),
       this.renderHeading(),
       this.props.collapsable ? this.renderCollapsableBody() : this.renderBody(),
@@ -23484,7 +23464,7 @@ var Panel = React.createClass({
     return React.createElement(
       "div",
       {
-        className: classNames(this.getCollapsableClassSet(collapseClass)),
+        className: classSet(this.getCollapsableClassSet(collapseClass)),
         id: this.props.id,
         ref: "panel",
         "aria-expanded": this.isExpanded() ? "true" : "false" },
@@ -23565,13 +23545,13 @@ var Panel = React.createClass({
     } else if (this.props.collapsable) {
 
       header = cloneElement(header, {
-        className: classNames(this.prefixClass("title")),
+        className: classSet(this.prefixClass("title")),
         children: this.renderAnchor(header.props.children)
       });
     } else {
 
       header = cloneElement(header, {
-        className: classNames(this.prefixClass("title"))
+        className: classSet(this.prefixClass("title"))
       });
     }
 
@@ -23623,16 +23603,13 @@ var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["defau
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-/* eslint react/prop-types: [1, {ignore: ["children", "className", "bsStyle"]}]*/
-/* BootstrapMixin contains `bsStyle` type validation */
-
 var _react = require("react");
 
 var React = _interopRequire(_react);
 
 var cloneElement = _react.cloneElement;
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
@@ -23645,7 +23622,6 @@ var PanelGroup = React.createClass({
 
   propTypes: {
     collapsable: React.PropTypes.bool,
-    accordion: React.PropTypes.bool,
     activeKey: React.PropTypes.any,
     defaultActiveKey: React.PropTypes.any,
     onSelect: React.PropTypes.func
@@ -23669,7 +23645,7 @@ var PanelGroup = React.createClass({
     var classes = this.getBsClassSet();
     return React.createElement(
       "div",
-      _extends({}, this.props, { className: classNames(this.props.className, classes), onSelect: null }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes), onSelect: null }),
       ValidComponentChildren.map(this.props.children, this.renderPanel)
     );
   },
@@ -23728,7 +23704,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
@@ -23779,7 +23755,7 @@ var Popover = React.createClass({
 
     return React.createElement(
       "div",
-      _extends({}, this.props, { className: classNames(this.props.className, classes), style: style, title: null }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes), style: style, title: null }),
       React.createElement("div", { className: "arrow", style: arrowStyle }),
       this.props.title ? this.renderTitle() : null,
       React.createElement(
@@ -23817,7 +23793,7 @@ var Interpolate = _interopRequire(require("./Interpolate"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var ValidComponentChildren = _interopRequire(require("./utils/ValidComponentChildren"));
 
@@ -23864,7 +23840,7 @@ var ProgressBar = React.createClass({
       if (!this.props.isChild) {
         return React.createElement(
           "div",
-          _extends({}, this.props, { className: classNames(this.props.className, classes) }),
+          _extends({}, this.props, { className: classSet(this.props.className, classes) }),
           this.renderProgressBar()
         );
       } else {
@@ -23873,7 +23849,7 @@ var ProgressBar = React.createClass({
     } else {
       return React.createElement(
         "div",
-        _extends({}, this.props, { className: classNames(this.props.className, classes) }),
+        _extends({}, this.props, { className: classSet(this.props.className, classes) }),
         ValidComponentChildren.map(this.props.children, this.renderChildBar)
       );
     }
@@ -23905,7 +23881,7 @@ var ProgressBar = React.createClass({
 
     return React.createElement(
       "div",
-      _extends({}, this.props, { className: classNames(this.props.className, classes), role: "progressbar",
+      _extends({}, this.props, { className: classSet(this.props.className, classes), role: "progressbar",
         style: { width: percentage + "%" },
         "aria-valuenow": this.props.now,
         "aria-valuemin": this.props.min,
@@ -23948,7 +23924,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var Row = React.createClass({
   displayName: "Row",
@@ -23968,7 +23944,7 @@ var Row = React.createClass({
 
     return React.createElement(
       ComponentClass,
-      _extends({}, this.props, { className: classNames(this.props.className, "row") }),
+      _extends({}, this.props, { className: classSet(this.props.className, "row") }),
       this.props.children
     );
   }
@@ -23982,12 +23958,9 @@ var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["defau
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-/* eslint react/prop-types: [1, {ignore: ["children", "className", "bsSize"]}]*/
-/* BootstrapMixin contains `bsSize` type validation */
-
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
@@ -24008,10 +23981,8 @@ var SplitButton = React.createClass({
     pullRight: React.PropTypes.bool,
     title: React.PropTypes.node,
     href: React.PropTypes.string,
-    id: React.PropTypes.string,
     target: React.PropTypes.string,
     dropdownTitle: React.PropTypes.node,
-    dropup: React.PropTypes.bool,
     onClick: React.PropTypes.func,
     onSelect: React.PropTypes.func,
     disabled: React.PropTypes.bool
@@ -24043,7 +24014,7 @@ var SplitButton = React.createClass({
       Button,
       _extends({}, this.props, {
         ref: "dropdownButton",
-        className: classNames(this.props.className, "dropdown-toggle"),
+        className: classSet(this.props.className, "dropdown-toggle"),
         onClick: this.handleDropdownClick,
         title: null,
         href: null,
@@ -24066,7 +24037,7 @@ var SplitButton = React.createClass({
       ButtonGroup,
       {
         bsSize: this.props.bsSize,
-        className: classNames(groupClasses),
+        className: classSet(groupClasses),
         id: this.props.id },
       button,
       dropdownButton,
@@ -24121,7 +24092,7 @@ var React = _interopRequire(_react);
 
 var cloneElement = _react.cloneElement;
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var ValidComponentChildren = _interopRequire(require("./utils/ValidComponentChildren"));
 
@@ -24137,10 +24108,7 @@ var SubNav = React.createClass({
   propTypes: {
     onSelect: React.PropTypes.func,
     active: React.PropTypes.bool,
-    activeHref: React.PropTypes.string,
-    activeKey: React.PropTypes.any,
     disabled: React.PropTypes.bool,
-    eventKey: React.PropTypes.any,
     href: React.PropTypes.string,
     title: React.PropTypes.string,
     text: React.PropTypes.node,
@@ -24231,7 +24199,7 @@ var SubNav = React.createClass({
 
     return React.createElement(
       "li",
-      _extends({}, this.props, { className: classNames(this.props.className, classes) }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes) }),
       React.createElement(
         "a",
         {
@@ -24269,18 +24237,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var TransitionEvents = _interopRequire(require("./utils/TransitionEvents"));
 
 var TabPane = React.createClass({
   displayName: "TabPane",
-
-  propTypes: {
-    active: React.PropTypes.bool,
-    animation: React.PropTypes.bool,
-    onAnimateOutEnd: React.PropTypes.func
-  },
 
   getDefaultProps: function getDefaultProps() {
     return {
@@ -24332,7 +24294,7 @@ var TabPane = React.createClass({
         animateOut: false
       });
 
-      if (this.props.onAnimateOutEnd) {
+      if (typeof this.props.onAnimateOutEnd === "function") {
         this.props.onAnimateOutEnd();
       }
     }
@@ -24348,7 +24310,7 @@ var TabPane = React.createClass({
 
     return React.createElement(
       "div",
-      _extends({}, this.props, { className: classNames(this.props.className, classes) }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes) }),
       this.props.children
     );
   }
@@ -24394,11 +24356,8 @@ var TabbedArea = React.createClass({
   mixins: [BootstrapMixin],
 
   propTypes: {
-    activeKey: React.PropTypes.any,
-    defaultActiveKey: React.PropTypes.any,
     bsStyle: React.PropTypes.oneOf(["tabs", "pills"]),
     animation: React.PropTypes.bool,
-    id: React.PropTypes.string,
     onSelect: React.PropTypes.func
   },
 
@@ -24515,7 +24474,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var Table = React.createClass({
   displayName: "Table",
@@ -24538,7 +24497,7 @@ var Table = React.createClass({
     };
     var table = React.createElement(
       "table",
-      _extends({}, this.props, { className: classNames(this.props.className, classes) }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes) }),
       this.props.children
     );
 
@@ -24562,7 +24521,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
@@ -24611,7 +24570,7 @@ var Tooltip = React.createClass({
 
     return React.createElement(
       "div",
-      _extends({}, this.props, { className: classNames(this.props.className, classes), style: style }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes), style: style }),
       React.createElement("div", { className: "tooltip-arrow", style: arrowStyle }),
       React.createElement(
         "div",
@@ -24632,7 +24591,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var React = _interopRequire(require("react"));
 
-var classNames = _interopRequire(require("classnames"));
+var classSet = _interopRequire(require("classnames"));
 
 var BootstrapMixin = _interopRequire(require("./BootstrapMixin"));
 
@@ -24652,7 +24611,7 @@ var Well = React.createClass({
 
     return React.createElement(
       "div",
-      _extends({}, this.props, { className: classNames(this.props.className, classes) }),
+      _extends({}, this.props, { className: classSet(this.props.className, classes) }),
       this.props.children
     );
   }
@@ -25110,31 +25069,16 @@ function createChainedFunction(one, two) {
 
 module.exports = createChainedFunction;
 },{}],224:[function(require,module,exports){
-"use strict";
-
-var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
-
-var React = _interopRequire(require("react"));
-
-/**
- * Get elements owner document
- *
- * @param {ReactComponent|HTMLElement} componentOrElement
- * @returns {HTMLElement}
- */
-function ownerDocument(componentOrElement) {
-  var elem = React.findDOMNode(componentOrElement);
-  return elem && elem.ownerDocument || document;
-}
-
 /**
  * Shortcut to compute element style
  *
  * @param {HTMLElement} elem
  * @returns {CssStyle}
  */
+"use strict";
+
 function getComputedStyles(elem) {
-  return ownerDocument(elem).defaultView.getComputedStyle(elem, null);
+  return elem.ownerDocument.defaultView.getComputedStyle(elem, null);
 }
 
 /**
@@ -25150,7 +25094,7 @@ function getOffset(DOMNode) {
     return window.jQuery(DOMNode).offset();
   }
 
-  var docElem = ownerDocument(DOMNode).documentElement;
+  var docElem = DOMNode.ownerDocument.documentElement;
   var box = { top: 0, left: 0 };
 
   // If we don't have gBCR, just use 0,0 rather than error
@@ -25217,7 +25161,7 @@ function getPosition(elem, offsetParent) {
  * @returns {HTMLElement}
  */
 function offsetParentFunc(elem) {
-  var docElem = ownerDocument(elem).documentElement;
+  var docElem = elem.ownerDocument.documentElement;
   var offsetParent = elem.offsetParent || docElem;
 
   while (offsetParent && (offsetParent.nodeName !== "HTML" && getComputedStyles(offsetParent).position === "static")) {
@@ -25228,13 +25172,12 @@ function offsetParentFunc(elem) {
 }
 
 module.exports = {
-  ownerDocument: ownerDocument,
   getComputedStyles: getComputedStyles,
   getOffset: getOffset,
   getPosition: getPosition,
   offsetParent: offsetParentFunc
 };
-},{"react":381}],225:[function(require,module,exports){
+},{}],225:[function(require,module,exports){
 arguments[4][3][0].apply(exports,arguments)
 },{"dup":3}],226:[function(require,module,exports){
 arguments[4][4][0].apply(exports,arguments)
@@ -25721,7 +25664,7 @@ module.exports = require('./code/index');
 },{"./code/index":386}],390:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.2.8",
+  "version": "0.2.10",
   "description": "UI Toolkit",
   "main": "src/index.js",
   "repository": {
