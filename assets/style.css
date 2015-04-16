@@ -1,122 +1,85 @@
-/*
- * React Bootstrap Documentation
- * Special styles for presenting react-bootstrap's documentation and code examples.
- * Based on the Bootstrap Documentation styles and overridden as necessary.
- */
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 body {
-  background-color: #f9f9f9;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.61em;
+  box-sizing: border-box;
+  font-size:16px;
 }
 
-.bs-docs-nav {
-  background-color: #222;
+h1, h2, h3, h4, h5 {
+  font-weight: 400;
+  clear:both;
+}
+header {
+  background:rgb(222,75,149);
+  color:rgb(255,255,255);
+  text-align: center;
+  padding:3em;
+}
+header h1, header .lead {
+  font-weight:100;
+}
+header img {
+  margin: 0px auto;
+  display: block;
+  height: 30%;
+  width:auto;
 }
 
-.bs-docs-nav .navbar-nav>li>a {
-  color: #aaa;
-  font-weight: normal;
+/* Nav */
+nav {
+  padding:2em 1em;
 }
-
-.bs-docs-nav .navbar-nav>li>a:hover,.bs-docs-nav .navbar-nav>.active>a, .bs-docs-nav .navbar-nav>.active>a:hover {
-  background: #333;
-  color: #fafafa;
+nav ul {
+  list-style:none;
 }
-
-.bs-docs-nav .navbar-collapse {
-  overflow: hidden;
+nav ul li a {
+  display:block;
+  padding:.5em 1em;
+  border-left:2px solid transparent;
+  text-decoration:none;
+  font-size:1em;
 }
-
-@media (min-width: 768px) {
-
-  .bs-docs-nav .navbar-nav>li>a {
-    border-bottom: 3px solid #222;
-  }
-  .bs-docs-nav .navbar-nav>li>a:hover,.bs-docs-nav .navbar-nav>.active>a, .bs-docs-nav .navbar-nav>.active>a:hover {
-    border-bottom: 3px solid #cc7a6f;
-  }
+nav ul li a:hover {
+  border-left:2px solid rgb(222,75,149);
+  text-decoration:none;
 }
-
-.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
-  color: #00d8ff;
-}
-
-.bs-docs-masthead, .bs-docs-header {
-  background: #2d2d2d;
-  filter: none;
-  color: #e9e9e9;
-}
-
-.bs-docs-header h1 {
-  color: #e9e9e9;
-}
-
-.bs-docs-header p {
-  color: #e9e9e9;
-}
-
-.bs-docs-sidebar .nav>li>a {
-  color: #666;
-}
-
-.bs-docs-sidebar .nav>li>a:hover, .bs-docs-sidebar .nav>li>a:focus {
-  color: #cc7a6f;
-  border-left: 1px solid #cc7a6f;
-}
-
-.back-to-top:hover {
-  color: #cc7a6f;
+nav ul ul li a {
+  font-size:0.85em;
+  padding: 0 2em;
 }
 
 
-.CodeMirror {
-  height: auto;
+.toolkit-example {
+  border:1px solid #e1e1e8;
+  padding: 9px 14px;
+  border-radius: 4px;
+  position:relative;
+  overflow:hidden;
 }
-
-.bs-example .btn-toolbar + .btn-toolbar {
-  margin-top: 10px;
-}
-
-.bs-example .static-modal .modal {
-  position: relative;
-  top: auto;
-  right: auto;
-  left: auto;
-  bottom: auto;
-  z-index: 1;
+.toolkit-example:before {
+  content:"Example";
+  color:#b1b1b1;
+  margin-bottom: 1em;
   display: block;
 }
 
-.bs-docs-booticon {
-  background: url('./logo.png') 0 0 no-repeat;
-  background-size: contain;
-  border: 0;
-  width: 287px;
-  height: 160px;
-}
-
-.bs-example-scroll {
-  overflow: scroll;
-  height: 200px;
-}
-
-.bs-example-scroll > div {
-  position: relative;
-  padding: 100px 0;
-}
-
-.playground {
-  margin-bottom: 36px;
-}
-
-.bs-example {
-  margin-bottom: 0;
-}
-
-.bs-example + .highlight {
+.toolkit-example + .highlight {
   margin-top: 0;
   margin-bottom: 0;
   border-top: none;
-  border-bottom-right-radius: 0;
+  border-radius: 0 0 0 4px;
+}
+.highlight, .highlight * {
+  background: #f6f6f6;
 }
 
 .code-toggle {
@@ -124,7 +87,7 @@ body {
   display: inline-block;
   position: relative;
   top: -1px;
-  background: #fafafa;
+  background: #ffffff;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   border: 1px solid #e1e1e8;
@@ -132,21 +95,24 @@ body {
   padding: 4px 8px;
 }
 
-@media (min-width: 768px) {
-  .code-toggle {
-    background: #fff;
-  }
-}
-
 .code-toggle.open {
-  background: #f8f5ec;
+  background: #f6f6f6;
 }
 
-/* Minimal CSS Needed for contained modals */
-.modal-container {
-  position: relative;
-}
-.modal-container .modal, .modal-container .modal-backdrop {
-  position: absolute;
+.CodeMirror-scroll {
+  height: auto;
 }
 
+/* Demo box */
+.demo-box {
+  position:relative;
+  width:98%;
+  height:150px;
+  background:#fbfbfb;
+  border:1px solid #e1e1e8;
+  padding: 4px;
+  border-radius: 4px;
+  margin:1%;
+  float:left;
+  z-index: 1;
+}
