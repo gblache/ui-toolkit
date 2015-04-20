@@ -19837,6 +19837,20 @@ var Components = React.createClass({displayName: "Components",
           React.createElement("p", null, "Need to position your flag? You can position the flag anywhere in a container using ", React.createElement("code", null, "top"), " (default), ", React.createElement("code", null, "bottom"), ", ", React.createElement("code", null, "left"), " or ", React.createElement("code", null, "right"), "."), 
           React.createElement("p", null, "The container must have a ", React.createElement("code", null, "relative:position"), " and a ", React.createElement("code", null, "z-index:x"), " applied."), 
           React.createElement(CustomComponent, {codeText: "var flagInstance = (\n  <div className=\"demo-box\">\n    <UIToolkit.Flag left>Left</UIToolkit.Flag>\n    <UIToolkit.Flag right>Right</UIToolkit.Flag>\n    <UIToolkit.Flag bottom left>Bottom Left</UIToolkit.Flag>\n    <UIToolkit.Flag bottom right>Bottom Right</UIToolkit.Flag>\n  </div>\n);\n\nReact.render(flagInstance, mountNode);\n"})
+        ), 
+
+        React.createElement("article", null, 
+          React.createElement("h3", {id: "rating"}, "Rating"), 
+          React.createElement("p", null, "Ratings can be used to display a series of icons intended to represent a score."), 
+          React.createElement(CustomComponent, {codeText: "var ratingInstance = (\n  <UIToolkit.Rating rating={4} outOf={5} blankIcon=\"☆\" >★</UIToolkit.Rating>\n);\nReact.render(ratingInstance, mountNode);"}), 
+          React.createElement("h4", null, "Attributes"), 
+          React.createElement("ul", null, 
+            React.createElement("li", null, React.createElement("code", null, "rating"), " Number - The count of positive icons to display."), 
+            React.createElement("li", null, React.createElement("code", null, "outOf"), " [optional] Number - The total count the rating value is out of."), 
+            React.createElement("li", null, React.createElement("code", null, "blankIcon"), " [optional] Node (any displayable item) - the icon to display for empty ratings.")
+          ), 
+          
+          "The ", React.createElement("code", null, "outOf"), " and ", React.createElement("code", null, "blankIcon"), " attributes are optional and dependent upon each other."
         )
       )
     );
@@ -20155,7 +20169,8 @@ var Nav = React.createClass({displayName: "Nav",
             React.createElement("a", {href: "#components"}, "Components"), 
             React.createElement("ul", null, 
               React.createElement("li", null, React.createElement("a", {href: "#button"}, "Ultimate Button")), 
-              React.createElement("li", null, React.createElement("a", {href: "#flags"}, "Flags"))
+              React.createElement("li", null, React.createElement("a", {href: "#flags"}, "Flags")), 
+              React.createElement("li", null, React.createElement("a", {href: "#rating"}, "Rating"))
             )
           )
         )
@@ -20198,7 +20213,7 @@ var PageHeader = React.createClass({displayName: "PageHeader",
 module.exports = PageHeader;
 
 
-},{"../../package.json":547,"react":159}],167:[function(require,module,exports){
+},{"../../package.json":551,"react":159}],167:[function(require,module,exports){
 var React = require('react');
 
 var packageJSON = require('../../package.json');
@@ -20221,11 +20236,11 @@ module.exports = PageHeader;
 
 
 
-},{"../../package.json":547,"react":159}],168:[function(require,module,exports){
+},{"../../package.json":551,"react":159}],168:[function(require,module,exports){
 module.exports = require('./src/ui-toolkit');
 
 
-},{"./src/ui-toolkit":548}],169:[function(require,module,exports){
+},{"./src/ui-toolkit":552}],169:[function(require,module,exports){
 "use strict";
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
@@ -26207,9 +26222,57 @@ arguments[4][158][0].apply(exports,arguments)
 },{"./emptyFunction":505,"_process":3,"dup":158}],546:[function(require,module,exports){
 arguments[4][159][0].apply(exports,arguments)
 },{"./lib/React":419,"dup":159}],547:[function(require,module,exports){
+module.exports = require('./views/rating_component_view.jsx');
+
+
+},{"./views/rating_component_view.jsx":549}],548:[function(require,module,exports){
+var React = require('react');
+
+module.exports = function(props) {
+
+  var $rating = [];
+  var $blankRating = [];
+  
+  for(var i = 0; i < props.rating; i++) {
+    $rating.push( (!!props.children) ? props.children : React.createElement("span", {className: "rating-icon"}) );
+  }
+  
+  if(props.outOf && props.blankIcon){
+    for(var j = 0; j < ( props.outOf-props.rating ); j++) {
+      $blankRating.push( props.blankIcon );
+    }
+  }
+
+  return (
+    React.createElement("div", {className: "ui-component-rating"}, 
+      $rating, 
+      $blankRating
+    )
+  );
+};
+
+},{"react":382}],549:[function(require,module,exports){
+var React = require('react');
+
+module.exports = React.createClass({displayName: "exports",
+  propTypes: {
+    rating: React.PropTypes.number.isRequired,
+    outOf: React.PropTypes.number,
+    blankIcon: React.PropTypes.node
+  },
+  
+  render: function() {
+    return require('../templates/rating_component_template.jsx')(this.props);
+  }
+});
+
+},{"../templates/rating_component_template.jsx":548,"react":382}],550:[function(require,module,exports){
+module.exports = require('./code/index');
+
+},{"./code/index":547}],551:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "UI Toolkit",
   "main": "src/index.js",
   "repository": {
@@ -26239,7 +26302,8 @@ module.exports={
     "require-directory": "^2.0.0",
     "requirejs": "~2.1.9",
     "ui-component-button": "git+ssh://git@github.com:holidayextras/ui-component-button.git",
-    "ui-component-flag": "git+ssh://git@github.com:holidayextras/ui-component-flag.git"
+    "ui-component-flag": "git+ssh://git@github.com:holidayextras/ui-component-flag.git",
+    "ui-component-rating": "git+ssh://git@github.com:holidayextras/ui-component-rating.git"
   },
   "devDependencies": {
     "browserify": "~9.0.8",
@@ -26257,19 +26321,19 @@ module.exports={
   }
 }
 
-},{}],548:[function(require,module,exports){
+},{}],552:[function(require,module,exports){
 var UIToolkit = {};
 
 // Custom Components
 UIToolkit.Button = require('ui-component-button');
 UIToolkit.Flag = require('ui-component-flag');
+UIToolkit.Rating = require('ui-component-rating');
 
 // Default Create Components
 UIToolkit.BootstrapAccordion = require('react-bootstrap/lib/Accordion');
 UIToolkit.BootstrapAffix = require('react-bootstrap/lib/Affix');
 UIToolkit.BootstrapAffixMixin = require('react-bootstrap/lib/AffixMixin');
 UIToolkit.BootstrapAlert = require('react-bootstrap/lib/Alert');
-UIToolkit.BootstrapBadge = require('react-bootstrap/lib/Badge');
 UIToolkit.BootstrapBadge = require('react-bootstrap/lib/Badge');
 UIToolkit.BootstrapBootstrapMixin = require('react-bootstrap/lib/BootstrapMixin');
 UIToolkit.BootstrapButton = require('react-bootstrap/lib/Button');
@@ -26318,4 +26382,4 @@ UIToolkit.BootstrapWell = require('react-bootstrap/lib/Well');
 module.exports = UIToolkit;
 
 
-},{"react-bootstrap/lib/Accordion":169,"react-bootstrap/lib/Affix":170,"react-bootstrap/lib/AffixMixin":171,"react-bootstrap/lib/Alert":172,"react-bootstrap/lib/Badge":173,"react-bootstrap/lib/BootstrapMixin":174,"react-bootstrap/lib/Button":175,"react-bootstrap/lib/ButtonGroup":176,"react-bootstrap/lib/ButtonToolbar":177,"react-bootstrap/lib/Carousel":178,"react-bootstrap/lib/CarouselItem":179,"react-bootstrap/lib/Col":180,"react-bootstrap/lib/CollapsableMixin":181,"react-bootstrap/lib/DropdownButton":182,"react-bootstrap/lib/DropdownMenu":183,"react-bootstrap/lib/DropdownStateMixin":184,"react-bootstrap/lib/FadeMixin":185,"react-bootstrap/lib/Glyphicon":187,"react-bootstrap/lib/Grid":188,"react-bootstrap/lib/Input":189,"react-bootstrap/lib/Interpolate":190,"react-bootstrap/lib/Jumbotron":191,"react-bootstrap/lib/Label":192,"react-bootstrap/lib/ListGroup":193,"react-bootstrap/lib/ListGroupItem":194,"react-bootstrap/lib/MenuItem":195,"react-bootstrap/lib/Modal":196,"react-bootstrap/lib/ModalTrigger":197,"react-bootstrap/lib/Nav":198,"react-bootstrap/lib/NavItem":199,"react-bootstrap/lib/Navbar":200,"react-bootstrap/lib/OverlayMixin":201,"react-bootstrap/lib/OverlayTrigger":202,"react-bootstrap/lib/PageHeader":203,"react-bootstrap/lib/PageItem":204,"react-bootstrap/lib/Pager":205,"react-bootstrap/lib/Panel":206,"react-bootstrap/lib/PanelGroup":207,"react-bootstrap/lib/Popover":208,"react-bootstrap/lib/ProgressBar":209,"react-bootstrap/lib/Row":210,"react-bootstrap/lib/SplitButton":211,"react-bootstrap/lib/SubNav":212,"react-bootstrap/lib/TabPane":213,"react-bootstrap/lib/TabbedArea":214,"react-bootstrap/lib/Table":215,"react-bootstrap/lib/Tooltip":216,"react-bootstrap/lib/Well":217,"ui-component-button":386,"ui-component-flag":390}]},{},[1]);
+},{"react-bootstrap/lib/Accordion":169,"react-bootstrap/lib/Affix":170,"react-bootstrap/lib/AffixMixin":171,"react-bootstrap/lib/Alert":172,"react-bootstrap/lib/Badge":173,"react-bootstrap/lib/BootstrapMixin":174,"react-bootstrap/lib/Button":175,"react-bootstrap/lib/ButtonGroup":176,"react-bootstrap/lib/ButtonToolbar":177,"react-bootstrap/lib/Carousel":178,"react-bootstrap/lib/CarouselItem":179,"react-bootstrap/lib/Col":180,"react-bootstrap/lib/CollapsableMixin":181,"react-bootstrap/lib/DropdownButton":182,"react-bootstrap/lib/DropdownMenu":183,"react-bootstrap/lib/DropdownStateMixin":184,"react-bootstrap/lib/FadeMixin":185,"react-bootstrap/lib/Glyphicon":187,"react-bootstrap/lib/Grid":188,"react-bootstrap/lib/Input":189,"react-bootstrap/lib/Interpolate":190,"react-bootstrap/lib/Jumbotron":191,"react-bootstrap/lib/Label":192,"react-bootstrap/lib/ListGroup":193,"react-bootstrap/lib/ListGroupItem":194,"react-bootstrap/lib/MenuItem":195,"react-bootstrap/lib/Modal":196,"react-bootstrap/lib/ModalTrigger":197,"react-bootstrap/lib/Nav":198,"react-bootstrap/lib/NavItem":199,"react-bootstrap/lib/Navbar":200,"react-bootstrap/lib/OverlayMixin":201,"react-bootstrap/lib/OverlayTrigger":202,"react-bootstrap/lib/PageHeader":203,"react-bootstrap/lib/PageItem":204,"react-bootstrap/lib/Pager":205,"react-bootstrap/lib/Panel":206,"react-bootstrap/lib/PanelGroup":207,"react-bootstrap/lib/Popover":208,"react-bootstrap/lib/ProgressBar":209,"react-bootstrap/lib/Row":210,"react-bootstrap/lib/SplitButton":211,"react-bootstrap/lib/SubNav":212,"react-bootstrap/lib/TabPane":213,"react-bootstrap/lib/TabbedArea":214,"react-bootstrap/lib/Table":215,"react-bootstrap/lib/Tooltip":216,"react-bootstrap/lib/Well":217,"ui-component-button":386,"ui-component-flag":390,"ui-component-rating":550}]},{},[1]);
