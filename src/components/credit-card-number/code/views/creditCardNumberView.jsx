@@ -28,7 +28,6 @@ module.exports = React.createClass({
       formatInput: false,
       id: 'credit-card-number',
       name: 'credit-card-number',
-      placeHolder: '• • • •   • • • •   • • • •   • • • •',
       showImages: false
     };
   },

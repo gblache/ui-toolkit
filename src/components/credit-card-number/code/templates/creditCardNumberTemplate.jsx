@@ -31,7 +31,6 @@ module.exports = function(component) {
 
   return (
     <div className="component-credit-card-number">
-      {images}
       <div className="credit-card-number">
         {label}
         <input
@@ -47,6 +46,7 @@ module.exports = function(component) {
           defaultValue={component.props.cardNumber}
           placeholder={component.props.placeHolder} />
       </div>
+      {images}
     </div>
   );
 };
