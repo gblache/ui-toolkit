@@ -1,0 +1,165 @@
+/*------------------------------------*\
+    #Quote
+\*------------------------------------*/
+
+.component-prompt {
+  display:flex;
+  border-radius:.25em;
+  flex-wrap:wrap;
+  overflow:hidden;
+  blockquote, figcaption, div {
+    box-sizing: border-box;
+    flex:1;
+    padding:1.5em;
+    margin:0;
+    border:0;
+    position:relative;
+  }
+  blockquote {
+    flex: 3 1 200px;
+    font-size: 1em;
+    &:after {
+      border-width: 1em 1em 0 0;
+      bottom:1.5em;
+      right:-1em;
+      content:"";
+      position:absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+    &:before {
+      border-width: 1em 0 0 1em;
+      bottom:-1em;
+      left:1.5em;
+      content:"";
+      position:absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+  }
+  figcaption {
+    flex: 1 1 200px;
+    &:after {
+      position:absolute;
+      right:.5em;
+      bottom:0;
+      width:20%;
+    }
+  }
+  h4 {
+    margin:0;
+    font-weight:700;
+  }
+  p {
+    padding:0;
+    margin:0;
+  }
+  & + .component-prompt {
+    margin-top:1em;
+  }
+}
+
+//
+// == Functional Colours ==
+//
+
+// Mixin
+.prompt-variant(@background) {
+  color: darken(@background, 30%);
+  background-color: lighten(@background, 30%);
+  blockquote {
+    &:after, &:before {
+      border-color: lighten(@background, 30%) transparent transparent transparent;
+      z-index:1;
+    }
+  }
+  figcaption {
+    color: darken(@background, 30%);
+    background-color: @background;
+    &:after {
+      content:"";
+      width:145px;
+      height:125px;
+    }
+  }
+  .component-image {
+    position:absolute;
+    right:0.5em;
+    bottom:0;
+    width:auto;
+  }
+}
+
+.component-prompt {
+  .prompt-variant(@default);
+  &.default {
+    .prompt-variant(@default);
+  }
+  &.primary {
+    .prompt-variant(@primary);
+  }
+  &.secondary {
+    .prompt-variant(@secondary);
+  }
+  &.success {
+    .prompt-variant(@success);
+  }
+  &.info {
+    .prompt-variant(@info);
+  }
+  &.warning {
+    .prompt-variant(@warning);
+  }
+  &.danger {
+    .prompt-variant(@danger);
+  }
+}
+
+//
+// == Orientation ==
+//
+
+.component-prompt {
+  &.horizontal {
+    flex-direction: row;
+    flex-wrap:nowrap;
+    blockquote {
+      &:after {
+        border-width: 1em 1em 0 0;
+        bottom:1.5em;
+        right:-1em;
+        content:"";
+        position:absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+      &:before {
+        display:none;
+      }
+    }
+  }
+  &.vertical {
+    flex-direction: column;
+    blockquote, figcaption {
+      flex: 1 0 100%;
+    }
+    blockquote {
+      &:after {
+        border-width: 1em 0 0 1em;
+        bottom:-1em;
+        left:1.5em;
+        content:"";
+        position:absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+      &:before {
+        display:none;
+      }
+    }
+  }
+}

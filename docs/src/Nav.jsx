@@ -21,8 +21,9 @@ var Nav = React.createClass({
               <li><a href="#flags">Flags</a></li>
               <li><a href="#rating">Rating</a></li>
               <li><a href="#image">Image</a></li>
-              <li><a href="#tile">Tile</a></li>
+              <li><a href="#card">Carrd</a></li>
               <li><a href="#lists">Lists</a></li>
+              <li><a href="#prompt">Prompt</a></li>
             </ul>
           </li>
         </ul>

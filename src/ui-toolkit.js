@@ -5,9 +5,10 @@ UIToolkit.Button = require('./components/button');
 UIToolkit.Flag = require('./components/flag');
 UIToolkit.Rating = require('./components/rating');
 UIToolkit.Reviews = require('./components/reviews');
-UIToolkit.Tile = require('./components/tile');
+UIToolkit.Card = require('./components/card');
 UIToolkit.Image = require('./components/image');
 UIToolkit.IconList = require('./components/icon-list');
 UIToolkit.IconListItem = require('./components/icon-list-item');
+UIToolkit.Prompt = require('./components/prompt');
 
 module.exports = UIToolkit;

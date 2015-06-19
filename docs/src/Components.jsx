@@ -23,7 +23,7 @@ var Components = React.createClass({
           <h4>Attributes</h4>
           <ul>
             <li><code>purpose</code> String - The purpose of the button</li>
-            <li><code>size</code> String - The size of the button</li>
+            <li><code>size</code> String - The size of the button (default: medium)</li>
             <li><code>disabled</code> Boolean - Determines the state of the button</li>
             <li><code>href</code> String - If an href is passed to a button, it changes to an anchor with button styling</li>
             <li><code>target</code> String - Standard html traget attribute</li>
@@ -52,8 +52,8 @@ var Components = React.createClass({
           <h4>Attributes</h4>
           <ul>
             <li><code>rating</code> Number - The count of positive icons to display.</li>
-            <li><code>outOf</code> [optional] Number - The total count the rating value is out of.</li>
-            <li><code>blankIcon</code> [optional] Node (any displayable item) - the icon to display for empty ratings.</li>
+            <li><code>outOf</code> Number - The total count the rating value is out of.</li>
+            <li><code>blankIcon</code> Node (any displayable item) - the icon to display for empty ratings.</li>
           </ul>
 
           The <code>outOf</code> and <code>blankIcon</code> attributes are optional and dependent upon each other.
@@ -70,10 +70,10 @@ var Components = React.createClass({
           </ul>
         </article>
 
-        <article id="tiles">
-          <h3>Tiles</h3>
-          <p>A tile for displaying an image with a title. The width of a tile is 100% of a container.</p>
-          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Tile.jsx', 'utf8')} />
+        <article id="card">
+          <h3>Card</h3>
+          <p>A card for displaying an image with a title. The width of a card is 100% of a container.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Card.jsx', 'utf8')} />
           <h4>Attributes</h4>
           <ul>
             <li><code>image</code> Object - Containing <code>src</code> and <code>alt</code> keys</li>
@@ -89,6 +89,31 @@ var Components = React.createClass({
           <h4>Attributes (for ListGroupItem)</h4>
           <ul>
             <li><code>icon</code> String - The name of the <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> icon that you want to display</li>
+          </ul>
+        </article>
+
+        <article id="prompt">
+          <h3>Prompt</h3>
+          <p>A prompt is used to display helpful or factual information.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Prompt.jsx', 'utf8')} />
+          <h4>Float Image</h4>
+          <p>Adding an image to your prompt can help convery your message. To add a float image use <code>floatImage</code></p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/PromptFloatImage.jsx', 'utf8')} />
+          <h4>Quote</h4>
+          <p>Sometimes you may want to convey an important piece of information that a person has acutally said. By adding an <code>author</code>the prompt will turn into a quote.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/PromptQuote.jsx', 'utf8')} />
+          <h4>Quote Orientation</h4>
+          <p>By default a quote will be vertical (stacked) on a small screen and will become horizontal when there is more space. You can force the orientation by addng <code>orientation="vertical"</code> or <code>orientation="horizontal"</code></p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/PromptQuoteOrientation.jsx', 'utf8')} />
+          <h4>Attributes</h4>
+          <ul>
+            <li><code>title</code> String - The title of the prompt</li>
+            <li><code>content</code> String - The content of the prompt</li>
+            <li><code>author</code> String - The author of the prompt quote</li>
+            <li><code>role</code> String - The role of the author</li>
+            <li><code>floatImage</code> Object - Containing <code>src</code> and <code>alt</code> keys</li>
+            <li><code>purpose</code> String - The purpose of the prompt</li>
+            <li><code>size</code> String - The size of the prompt (default: medium)</li>
           </ul>
         </article>
 

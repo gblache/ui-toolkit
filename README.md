@@ -26,8 +26,9 @@ var UIToolkit = require('ui-toolkit');
 <UIToolkit.Flag />
 <UIToolkit.Rating />
 <UIToolkit.Reviews />
-<UIToolkit.Tile />
+<UIToolkit.Card />
 <UIToolkit.Image />
+<UIToolkit.IconList />
 ```
 
 If you would like to cherry pick which components to include in your project, you can use this method:
