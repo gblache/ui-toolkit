@@ -1,0 +1,191 @@
+/*------------------------------------*\
+    #Quote
+\*------------------------------------*/
+
+.component-quote {
+  border-radius:.25em;
+  overflow:hidden;
+  position:relative;
+  blockquote {
+    padding:1.5em;
+  }
+}
+
+// .component-prompt {
+//   border-radius:.25em;
+//   overflow:hidden;
+//   position:relative;
+//   blockquote, figcaption, div {
+//     box-sizing: border-box;
+//     padding:1.5em;
+//     margin:0;
+//     border:0;
+//     position:relative;
+//   }
+//   blockquote {
+//     font-size: 1em;
+//     &:after {
+//       border-width: 1em 1em 0 0;
+//       bottom:1.5em;
+//       right:-1em;
+//       content:"";
+//       position:absolute;
+//       width: 0;
+//       height: 0;
+//       border-style: solid;
+//     }
+//     &:before {
+//       border-width: 1em 0 0 1em;
+//       bottom:-1em;
+//       left:1.5em;
+//       content:"";
+//       position:absolute;
+//       width: 0;
+//       height: 0;
+//       border-style: solid;
+//     }
+//   }
+//   figcaption {
+//     &:after {
+//       position:absolute;
+//       right:.5em;
+//       bottom:0;
+//       width:20%;
+//     }
+//   }
+//   h4 {
+//     margin:0;
+//     font-weight:700;
+//   }
+//   p {
+//     padding:0;
+//     margin:0;
+//   }
+//   & + .component-prompt {
+//     margin-top:1em;
+//   }
+// }
+
+// //
+// // == Functional Colours ==
+// //
+
+// // Mixin
+// .prompt-variant(@background) {
+//   color: darken(@background, 30%);
+//   background-color: lighten(@background, 30%);
+//   blockquote {
+//     &:after, &:before {
+//       border-color: lighten(@background, 30%) transparent transparent transparent;
+//       z-index:1;
+//     }
+//   }
+//   figcaption {
+//     color: darken(@background, 30%);
+//     background-color: @background;
+//   }
+// }
+
+// .component-prompt {
+//   .prompt-variant(@default);
+//   &.default {
+//     .prompt-variant(@default);
+//   }
+//   &.primary {
+//     .prompt-variant(@primary);
+//   }
+//   &.secondary {
+//     .prompt-variant(@secondary);
+//   }
+//   &.success {
+//     .prompt-variant(@success);
+//   }
+//   &.info {
+//     .prompt-variant(@info);
+//   }
+//   &.warning {
+//     .prompt-variant(@warning);
+//   }
+//   &.danger {
+//     .prompt-variant(@danger);
+//   }
+// }
+
+// //
+// // == Orientation ==
+// //
+
+// .component-prompt {
+//   &.horizontal {
+//     blockquote {
+//       float:left;
+//       width:50%;
+//       &:after {
+//         border-width: 1em 1em 0 0;
+//         bottom:1.5em;
+//         right:-1em;
+//         content:"";
+//         position:absolute;
+//         width: 0;
+//         height: 0;
+//         border-style: solid;
+//       }
+//       &:before {
+//         display:none;
+//       }
+//     }
+//     figcaption {
+//       position: absolute;
+//       top: 0;
+//       bottom: 0;
+//       right: 0;
+//       width:50%;
+//     }
+//   }
+//   &.vertical {
+//     blockquote {
+//       &:after {
+//         border-width: 1em 0 0 1em;
+//         bottom:-1em;
+//         left:1.5em;
+//         content:"";
+//         position:absolute;
+//         width: 0;
+//         height: 0;
+//         border-style: solid;
+//       }
+//       &:before {
+//         display:none;
+//       }
+//     }
+//   }
+// }
+
+// //
+// // == Flexbox ==
+// //
+
+// .component-prompt {
+//   display:flex;
+//   flex-wrap:wrap;
+//   blockquote, figcaption, div {
+//     flex:1;
+//   }
+//   blockquote {
+//     flex: 3 1 200px;
+//   }
+//   figcaption {
+//     flex: 1 1 200px;
+//   }
+//   &.horizontal {
+//     flex-direction: row;
+//     flex-wrap:nowrap;
+//   }
+//   &.vertical {
+//     flex-direction: column;
+//     blockquote, figcaption {
+//       flex: 1 0 100%;
+//     }
+//   }
+// }
+

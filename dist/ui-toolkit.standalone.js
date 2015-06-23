@@ -1,7 +1,7 @@
 (function(f){if(typeof exports==="object"&&typeof module!=="undefined"){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.uiToolkit = f()}})(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = require('./src/ui-toolkit');
 
-},{"./src/ui-toolkit":230}],2:[function(require,module,exports){
+},{"./src/ui-toolkit":235}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -24253,7 +24253,7 @@ module.exports = function() {
   );
 };
 
-},{"../../../../utils/getComponentClasses":231,"classnames":3}],199:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":236,"classnames":3}],199:[function(require,module,exports){
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
 
@@ -24270,9 +24270,7 @@ module.exports = function() {
   );
 };
 
-},{"../../../../utils/getComponentClasses":231,"classnames":3}],200:[function(require,module,exports){
-/** @jsx React.DOM */
-
+},{"../../../../utils/getComponentClasses":236,"classnames":3}],200:[function(require,module,exports){
 var React = require('react');
 var DataAttributesMixin = require('react-data-attributes-mixin');
 module.exports = React.createClass({displayName: "exports",
@@ -24359,7 +24357,7 @@ module.exports = function(props) {
   );
 };
 
-},{"../../../../utils/getComponentClasses":231,"classnames":3}],208:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":236,"classnames":3}],208:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24460,9 +24458,77 @@ module.exports = React.createClass({displayName: "exports",
 module.exports = require('./code/index');
 
 },{"./code/index":218}],222:[function(require,module,exports){
+module.exports = require('./views/promptView.jsx');
+
+},{"./views/promptView.jsx":225}],223:[function(require,module,exports){
+var classNames = require('classnames');
+var getComponentClasses = require('../../../../utils/getComponentClasses');
+
+module.exports = function() {
+
+  var propClasses = ['size', 'purpose', 'orientation'];
+  var classes = getComponentClasses('component-prompt', propClasses, this.props);
+
+  return (
+    React.createElement("figure", {className: classNames(classes)}, 
+      React.createElement("blockquote", null, 
+        React.createElement("h4", null, this.props.title), 
+        React.createElement("p", null, this.props.children)
+      ), 
+      React.createElement("figcaption", null, 
+        React.createElement("h4", null, this.props.author), 
+        React.createElement("p", null, this.props.role)
+      )
+    )
+
+  );
+};
+
+},{"../../../../utils/getComponentClasses":236,"classnames":3}],224:[function(require,module,exports){
+var classNames = require('classnames');
+var getComponentClasses = require('../../../../utils/getComponentClasses');
+
+module.exports = function() {
+
+  var propClasses = ['size', 'purpose', 'orientation'];
+  var classes = getComponentClasses('component-prompt', propClasses, this.props);
+
+  return (
+    React.createElement("figure", {className: classNames(classes)}, 
+      React.createElement("div", null, 
+        React.createElement("h4", null, this.props.title), 
+        React.createElement("p", null, this.props.children)
+      )
+    )
+  );
+};
+
+},{"../../../../utils/getComponentClasses":236,"classnames":3}],225:[function(require,module,exports){
+var React = require('react');
+
+module.exports = React.createClass({displayName: "exports",
+
+  propTypes: {
+    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    orientation: React.PropTypes.oneOf(['default', 'horizontal', 'vertical'])
+  },
+
+  render: function() {
+    if(this.props.author) {
+      return require('../templates/promptQuoteTemplate.jsx').call(this);
+    }
+    return require('../templates/promptTemplate.jsx').call(this);
+  }
+});
+
+},{"../templates/promptQuoteTemplate.jsx":223,"../templates/promptTemplate.jsx":224,"react":196}],226:[function(require,module,exports){
+module.exports = require('./code/index');
+
+},{"./code/index":222}],227:[function(require,module,exports){
 module.exports = require('./views/ratingView.jsx');
 
-},{"./views/ratingView.jsx":224}],223:[function(require,module,exports){
+},{"./views/ratingView.jsx":229}],228:[function(require,module,exports){
 module.exports = function(props) {
 
   var $rating = [];
@@ -24486,7 +24552,7 @@ module.exports = function(props) {
   );
 };
 
-},{}],224:[function(require,module,exports){
+},{}],229:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24501,13 +24567,13 @@ module.exports = React.createClass({displayName: "exports",
   }
 });
 
-},{"../templates/ratingTemplate.jsx":223,"react":196}],225:[function(require,module,exports){
+},{"../templates/ratingTemplate.jsx":228,"react":196}],230:[function(require,module,exports){
 module.exports = require('./code/index');
 
-},{"./code/index":222}],226:[function(require,module,exports){
+},{"./code/index":227}],231:[function(require,module,exports){
 module.exports = require('./views/reviewsView.jsx');
 
-},{"./views/reviewsView.jsx":228}],227:[function(require,module,exports){
+},{"./views/reviewsView.jsx":233}],232:[function(require,module,exports){
 module.exports = function(props) {
   return (
     React.createElement("div", {itemProp: "aggregateRating", itemScope: true, itemType: "http://schema.org/AggregateRating", className: "ui-component-reviews"}, 
@@ -24518,7 +24584,7 @@ module.exports = function(props) {
   );
 };
 
-},{}],228:[function(require,module,exports){
+},{}],233:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24531,10 +24597,10 @@ module.exports = React.createClass({displayName: "exports",
   }
 });
 
-},{"../templates/reviewsTemplate.jsx":227,"react":196}],229:[function(require,module,exports){
+},{"../templates/reviewsTemplate.jsx":232,"react":196}],234:[function(require,module,exports){
 module.exports = require('./code/index');
 
-},{"./code/index":226}],230:[function(require,module,exports){
+},{"./code/index":231}],235:[function(require,module,exports){
 var UIToolkit = {};
 
 // Custom Components
@@ -24542,14 +24608,15 @@ UIToolkit.Button = require('./components/button');
 UIToolkit.Flag = require('./components/flag');
 UIToolkit.Rating = require('./components/rating');
 UIToolkit.Reviews = require('./components/reviews');
-UIToolkit.Tile = require('./components/card');
+UIToolkit.Card = require('./components/card');
 UIToolkit.Image = require('./components/image');
 UIToolkit.IconList = require('./components/icon-list');
 UIToolkit.IconListItem = require('./components/icon-list-item');
+UIToolkit.Prompt = require('./components/prompt');
 
 module.exports = UIToolkit;
 
-},{"./components/button":201,"./components/card":205,"./components/flag":209,"./components/icon-list":217,"./components/icon-list-item":213,"./components/image":221,"./components/rating":225,"./components/reviews":229}],231:[function(require,module,exports){
+},{"./components/button":201,"./components/card":205,"./components/flag":209,"./components/icon-list":217,"./components/icon-list-item":213,"./components/image":221,"./components/prompt":226,"./components/rating":230,"./components/reviews":234}],236:[function(require,module,exports){
 var _ = {
   values: require('lodash.values'),
   pick: require('lodash.pick')

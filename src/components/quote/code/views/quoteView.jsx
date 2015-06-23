@@ -9,9 +9,6 @@ module.exports = React.createClass({
   },
 
   render: function() {
-    if(this.props.author) {
-      return require('../templates/promptQuoteTemplate.jsx')(this.props);
-    }
-    return require('../templates/promptTemplate.jsx')(this.props);
+    return require('../templates/quoteTemplate.jsx').call(this);
   }
 });

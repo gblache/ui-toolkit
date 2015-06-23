@@ -9,6 +9,6 @@ UIToolkit.Card = require('./components/card');
 UIToolkit.Image = require('./components/image');
 UIToolkit.IconList = require('./components/icon-list');
 UIToolkit.IconListItem = require('./components/icon-list-item');
-UIToolkit.Prompt = require('./components/prompt');
+UIToolkit.Alert = require('./components/alert');
 
 module.exports = UIToolkit;

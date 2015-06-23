@@ -8,7 +8,6 @@ var Components = React.createClass({
     return (
       <section id="components">
         <h2 className="page-header">Components</h2>
-
         <article id="button">
           <h3>Buttons</h3>
           <p>A clickable/tappable button element</p>
@@ -92,28 +91,15 @@ var Components = React.createClass({
           </ul>
         </article>
 
-        <article id="prompt">
-          <h3>Prompt</h3>
-          <p>A prompt is used to display helpful or factual information.</p>
-          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Prompt.jsx', 'utf8')} />
-          <h4>Float Image</h4>
-          <p>Adding an image to your prompt can help convery your message. To add a float image use <code>floatImage</code></p>
-          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/PromptFloatImage.jsx', 'utf8')} />
-          <h4>Quote</h4>
-          <p>Sometimes you may want to convey an important piece of information that a person has acutally said. By adding an <code>author</code>the prompt will turn into a quote.</p>
-          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/PromptQuote.jsx', 'utf8')} />
-          <h4>Quote Orientation</h4>
-          <p>By default a quote will be vertical (stacked) on a small screen and will become horizontal when there is more space. You can force the orientation by addng <code>orientation="vertical"</code> or <code>orientation="horizontal"</code></p>
-          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/PromptQuoteOrientation.jsx', 'utf8')} />
+        <article id="alert">
+          <h3>Alert</h3>
+          <p>An alert is is used to display helpful or factual information usually used as a prompt.</p>
+          <CustomComponent codeText={fs.readFileSync(__dirname + '/../examples/Alert.jsx', 'utf8')} />
           <h4>Attributes</h4>
           <ul>
-            <li><code>title</code> String - The title of the prompt</li>
-            <li><code>content</code> String - The content of the prompt</li>
-            <li><code>author</code> String - The author of the prompt quote</li>
-            <li><code>role</code> String - The role of the author</li>
-            <li><code>floatImage</code> Object - Containing <code>src</code> and <code>alt</code> keys</li>
-            <li><code>purpose</code> String - The purpose of the prompt</li>
-            <li><code>size</code> String - The size of the prompt (default: medium)</li>
+            <li><code>title</code> String - The title of the alert</li>
+            <li><code>purpose</code> String - The purpose of the alert</li>
+            <li><code>size</code> String - The size of the alert (default: medium)</li>
           </ul>
         </article>
 
