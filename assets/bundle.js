@@ -23576,7 +23576,7 @@ arguments[4][159][0].apply(exports,arguments)
 },{"./lib/React":235,"dup":159}],363:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "UI Toolkit",
   "main": "src/index.js",
   "repository": {
