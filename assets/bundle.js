@@ -19988,6 +19988,24 @@ var Components = React.createClass({displayName: "Components",
             React.createElement("li", null, React.createElement("code", null, "purpose"), " String - The purpose of the alert"), 
             React.createElement("li", null, React.createElement("code", null, "size"), " String - The size of the alert (default: medium)")
           )
+        ), 
+
+         React.createElement("article", {id: "quote"}, 
+          React.createElement("h3", null, "Quote"), 
+          React.createElement("p", null, "A quote is used referencing blocks of content from another source within your document. They come as a ", React.createElement("code", null, "Block"), " (default) or ", React.createElement("code", null, "inline")), 
+          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <UIToolkit.Quote author=\"Brad Frost\" role=\"Web Designer\">It's not about what we do, it's about what we enable other people to do</UIToolkit.Quote>\n    <UIToolkit.Quote author=\"Christian Heilmann\" role=\"Developer Evangelist\" cite=\"Twitter\" purpose=\"warning\">Fix the broken things before you build the shiney new broken things</UIToolkit.Quote>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+          React.createElement("h4", null, "Inline"), 
+          React.createElement("p", null, "Inline quotes are for referencing something inline within a section of prose"), 
+          React.createElement(CustomComponent, {codeText: "var example = (\n  <div>\n    <p>Gandalf, Captain of the Starship Enterprise said <UIToolkit.Quote type=\"inline\" author=\"Gandalf\" role=\"Captain of the Starship Enterprise\" cite=\"The Internet\" purpose=\"success\">Use The Force Harry</UIToolkit.Quote>\n    </p>\n  </div>\n);\n\nReact.render(example, mountNode);\n"}), 
+          React.createElement("h4", null, "Attributes"), 
+          React.createElement("ul", null, 
+            React.createElement("li", null, React.createElement("code", null, "type"), " String - Block (default) or Inline"), 
+            React.createElement("li", null, React.createElement("code", null, "cite"), " String - cited title of a work; for example, the title of a book mentioned within the main text flow of a document"), 
+            React.createElement("li", null, React.createElement("code", null, "author"), " String - The author of the quote"), 
+            React.createElement("li", null, React.createElement("code", null, "role"), " String - The role/job title of the author"), 
+            React.createElement("li", null, React.createElement("code", null, "purpose"), " String - The purpose of the quote"), 
+            React.createElement("li", null, React.createElement("code", null, "size"), " String - The size of the alert (default: medium)")
+          )
         )
 
       )
@@ -20315,7 +20333,8 @@ var Nav = React.createClass({displayName: "Nav",
               React.createElement("li", null, React.createElement("a", {href: "#image"}, "Image")), 
               React.createElement("li", null, React.createElement("a", {href: "#tile"}, "Tile")), 
               React.createElement("li", null, React.createElement("a", {href: "#lists"}, "Lists")), 
-              React.createElement("li", null, React.createElement("a", {href: "#alert"}, "Alert"))
+              React.createElement("li", null, React.createElement("a", {href: "#alert"}, "Alert")), 
+              React.createElement("li", null, React.createElement("a", {href: "#quote"}, "Quote"))
             )
           )
         )
@@ -20385,7 +20404,7 @@ module.exports = PageHeader;
 module.exports = require('./src/ui-toolkit');
 
 
-},{"./src/ui-toolkit":401}],169:[function(require,module,exports){
+},{"./src/ui-toolkit":406}],169:[function(require,module,exports){
 /*!
   Copyright (c) 2015 Jed Watson.
   Licensed under the MIT License (MIT), see
@@ -20423,13 +20442,13 @@ module.exports = require('./src/ui-toolkit');
 		return classes.substr(1);
 	}
 
-	if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
+	if (typeof module !== 'undefined' && module.exports) {
+		module.exports = classNames;
+	} else if (typeof define === 'function' && typeof define.amd === 'object' && define.amd){
 		// AMD. Register as an anonymous module.
 		define(function () {
 			return classNames;
 		});
-	} else if (typeof module !== 'undefined' && module.exports) {
-		module.exports = classNames;
 	} else {
 		window.classNames = classNames;
 	}
@@ -23576,8 +23595,9 @@ arguments[4][159][0].apply(exports,arguments)
 },{"./lib/React":235,"dup":159}],363:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.8.2",
+  "version": "0.9.0",
   "description": "UI Toolkit",
+  "license": "MIT",
   "main": "src/index.js",
   "repository": {
     "type": "git",
@@ -23674,7 +23694,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":402,"classnames":169,"react":362}],366:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":407,"classnames":169,"react":362}],366:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -23717,7 +23737,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":402,"classnames":169,"react":362}],370:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":407,"classnames":169,"react":362}],370:[function(require,module,exports){
 var React = require('react');
 var classNames = require('classnames');
 var getComponentClasses = require('../../../../utils/getComponentClasses');
@@ -23736,7 +23756,7 @@ module.exports = function() {
 };
 
 
-},{"../../../../utils/getComponentClasses":402,"classnames":169,"react":362}],371:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":407,"classnames":169,"react":362}],371:[function(require,module,exports){
 /** @jsx React.DOM */
 
 var React = require('react');
@@ -23791,7 +23811,7 @@ module.exports = function(props) {
 };
 
 
-},{"../../../../utils/getComponentClasses":402,"classnames":169,"react":362}],375:[function(require,module,exports){
+},{"../../../../utils/getComponentClasses":407,"classnames":169,"react":362}],375:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -23927,10 +23947,86 @@ module.exports = require('./code/index');
 
 
 },{"./code/index":385}],389:[function(require,module,exports){
+module.exports = require('./views/quoteView.jsx');
+
+
+},{"./views/quoteView.jsx":392}],390:[function(require,module,exports){
+var React = require('react');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../../utils/getComponentClasses');
+
+module.exports = function() {
+
+  var propClasses = ['size', 'purpose', 'type'];
+  var classes = getComponentClasses('component-quote', propClasses, this.props);
+
+  return (
+      React.createElement("blockquote", {className: classNames(classes), itemScope: true, itemType: "http://schema.org/CreativeWork"}, 
+        React.createElement("p", {itemProp: "text"}, this.props.children), 
+        React.createElement("footer", {itemProp: "author", itemScope: true, itemType: "http://schema.org/Person"}, 
+          React.createElement("span", {itemProp: "name"}, this.props.author), 
+          React.createElement("small", {itemProp: "jobTitle"}, this.props.role), 
+          (this.props.cite) ? React.createElement("cite", {itemProp: "citation"}, this.props.cite) : null
+        )
+      )
+  );
+};
+
+
+},{"../../../../utils/getComponentClasses":407,"classnames":169,"react":362}],391:[function(require,module,exports){
+var React = require('react');
+var classNames = require('classnames');
+var getComponentClasses = require('../../../../utils/getComponentClasses');
+
+module.exports = function() {
+
+  var propClasses = ['size', 'purpose', 'type'];
+  var classes = getComponentClasses('component-quote', propClasses, this.props);
+
+  return (
+      React.createElement("q", {className: classNames(classes), cite: this.props.cite, itemScope: true, itemType: "http://schema.org/CreativeWork", itemProp: "text"}, 
+        this.props.children, 
+        (this.props.cite) ? React.createElement("meta", {itemProp: "citation", content: this.props.cite}) : null, 
+        React.createElement("span", {itemProp: "author", itemScope: true, itemType: "http://schema.org/Person"}, 
+          React.createElement("meta", {itemProp: "name", content: this.props.author}), 
+          React.createElement("meta", {itemProp: "jobTitle", content: this.props.role})
+        )
+      )
+  );
+};
+
+
+},{"../../../../utils/getComponentClasses":407,"classnames":169,"react":362}],392:[function(require,module,exports){
+var React = require('react');
+
+module.exports = React.createClass({displayName: "exports",
+
+  propTypes: {
+    purpose: React.PropTypes.oneOf(['default', 'primary', 'secondary', 'success', 'warning', 'danger', 'info']),
+    size: React.PropTypes.oneOf(['default', 'small', 'medium', 'large', 'extra-large']),
+    orientation: React.PropTypes.oneOf(['default', 'horizontal', 'vertical']),
+    type: React.PropTypes.oneOf(['block', 'inline'])
+  },
+
+  render: function() {
+    if(this.props.type === 'inline') {
+      return require('../templates/quoteTemplate.jsx').call(this);
+    }
+    return require('../templates/blockQuoteTemplate.jsx').call(this);
+  }
+});
+
+
+
+},{"../templates/blockQuoteTemplate.jsx":390,"../templates/quoteTemplate.jsx":391,"react":362}],393:[function(require,module,exports){
+module.exports = require('./code/index');
+
+
+},{"./code/index":389}],394:[function(require,module,exports){
 module.exports = require('./views/ratingView.jsx');
 
 
-},{"./views/ratingView.jsx":391}],390:[function(require,module,exports){
+},{"./views/ratingView.jsx":396}],395:[function(require,module,exports){
 var React = require('react');
 
 module.exports = function(props) {
@@ -23957,7 +24053,7 @@ module.exports = function(props) {
 };
 
 
-},{"react":362}],391:[function(require,module,exports){
+},{"react":362}],396:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -23973,15 +24069,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/ratingTemplate.jsx":390,"react":362}],392:[function(require,module,exports){
+},{"../templates/ratingTemplate.jsx":395,"react":362}],397:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":389}],393:[function(require,module,exports){
+},{"./code/index":394}],398:[function(require,module,exports){
 module.exports = require('./views/reviewsView.jsx');
 
 
-},{"./views/reviewsView.jsx":395}],394:[function(require,module,exports){
+},{"./views/reviewsView.jsx":400}],399:[function(require,module,exports){
 var React = require('react');
 
 module.exports = function(props) {
@@ -23995,7 +24091,7 @@ module.exports = function(props) {
 };
 
 
-},{"react":362}],395:[function(require,module,exports){
+},{"react":362}],400:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24009,15 +24105,15 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/reviewsTemplate.jsx":394,"react":362}],396:[function(require,module,exports){
+},{"../templates/reviewsTemplate.jsx":399,"react":362}],401:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":393}],397:[function(require,module,exports){
+},{"./code/index":398}],402:[function(require,module,exports){
 module.exports = require('./views/tileView.jsx');
 
 
-},{"./views/tileView.jsx":399}],398:[function(require,module,exports){
+},{"./views/tileView.jsx":404}],403:[function(require,module,exports){
 var React = require('react');
 var ImageComponent = require('../../../image');
 
@@ -24034,7 +24130,7 @@ module.exports = function(props) {
 };
 
 
-},{"../../../image":388,"react":362}],399:[function(require,module,exports){
+},{"../../../image":388,"react":362}],404:[function(require,module,exports){
 var React = require('react');
 
 module.exports = React.createClass({displayName: "exports",
@@ -24053,11 +24149,11 @@ module.exports = React.createClass({displayName: "exports",
 });
 
 
-},{"../templates/tileTemplate.jsx":398,"react":362}],400:[function(require,module,exports){
+},{"../templates/tileTemplate.jsx":403,"react":362}],405:[function(require,module,exports){
 module.exports = require('./code/index');
 
 
-},{"./code/index":397}],401:[function(require,module,exports){
+},{"./code/index":402}],406:[function(require,module,exports){
 var UIToolkit = {};
 
 // Custom Components
@@ -24070,11 +24166,12 @@ UIToolkit.Image = require('./components/image');
 UIToolkit.IconList = require('./components/icon-list');
 UIToolkit.IconListItem = require('./components/icon-list-item');
 UIToolkit.Alert = require('./components/alert');
+UIToolkit.Quote = require('./components/quote');
 
 module.exports = UIToolkit;
 
 
-},{"./components/alert":367,"./components/button":372,"./components/flag":376,"./components/icon-list":384,"./components/icon-list-item":380,"./components/image":388,"./components/rating":392,"./components/reviews":396,"./components/tile":400}],402:[function(require,module,exports){
+},{"./components/alert":367,"./components/button":372,"./components/flag":376,"./components/icon-list":384,"./components/icon-list-item":380,"./components/image":388,"./components/quote":393,"./components/rating":397,"./components/reviews":401,"./components/tile":405}],407:[function(require,module,exports){
 var _ = {
   values: require('lodash.values'),
   pick: require('lodash.pick')
