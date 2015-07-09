@@ -19952,7 +19952,8 @@ var Components = React.createClass({displayName: "Components",
           React.createElement("h4", null, "Attributes"), 
           React.createElement("ul", null, 
             React.createElement("li", null, React.createElement("code", null, "src"), " String - Image src attribute"), 
-            React.createElement("li", null, React.createElement("code", null, "alt"), " String - Image alt attribute")
+            React.createElement("li", null, React.createElement("code", null, "alt"), " String - Image alt attribute"), 
+            React.createElement("li", null, React.createElement("code", null, "handleClick"), " Function - handle click events on the image")
           )
         ), 
 
@@ -20442,13 +20443,13 @@ module.exports = require('./src/ui-toolkit');
 		return classes.substr(1);
 	}
 
-	if (typeof module !== 'undefined' && module.exports) {
-		module.exports = classNames;
-	} else if (typeof define === 'function' && typeof define.amd === 'object' && define.amd){
+	if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
 		// AMD. Register as an anonymous module.
 		define(function () {
 			return classNames;
 		});
+	} else if (typeof module !== 'undefined' && module.exports) {
+		module.exports = classNames;
 	} else {
 		window.classNames = classNames;
 	}
@@ -23595,7 +23596,7 @@ arguments[4][159][0].apply(exports,arguments)
 },{"./lib/React":235,"dup":159}],363:[function(require,module,exports){
 module.exports={
   "name": "ui-toolkit",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "UI Toolkit",
   "license": "MIT",
   "main": "src/index.js",
@@ -23921,7 +23922,7 @@ var React = require('react');
 
 module.exports = function(props) {
   return (
-    React.createElement("img", {alt: props.alt, src: props.src, className: "component-image"})
+    React.createElement("img", {alt: props.alt, src: props.src, onClick: props.handleClick, className: "component-image"})
   );
 };
 
@@ -23933,7 +23934,8 @@ module.exports = React.createClass({displayName: "exports",
 
   propTypes: {
     src: React.PropTypes.string.isRequired,
-    alt: React.PropTypes.string.isRequired
+    alt: React.PropTypes.string.isRequired,
+    handleClick: React.PropTypes.func
   },
 
   render: function() {
